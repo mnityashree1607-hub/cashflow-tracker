@@ -1,0 +1,421 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: Arial, sans-serif;
+
+    min-height: 100vh;
+
+    background: #f1f5f9;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+.login-container {
+
+    width: 950px;
+
+    min-height: 580px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.12);
+
+}
+
+
+/* =========================
+   LEFT SIDE
+========================= */
+
+.login-left {
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #2563eb
+        );
+
+    color: white;
+
+    padding: 50px;
+
+}
+
+
+.logo {
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+}
+
+
+.welcome {
+
+    margin-top: 100px;
+
+}
+
+
+.welcome h1 {
+
+    font-size: 36px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.welcome p {
+
+    color: #dbeafe;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+.features {
+
+    margin-top: 40px;
+
+}
+
+
+.features div {
+
+    margin-bottom: 15px;
+
+    color: #eff6ff;
+
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.login-right {
+
+    padding: 55px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+}
+
+
+.login-right h2 {
+
+    font-size: 29px;
+
+    color: #1e293b;
+
+    margin-bottom: 10px;
+
+}
+
+
+.subtitle {
+
+    color: #64748b;
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.input-group {
+
+    margin-bottom: 22px;
+
+}
+
+
+.input-group label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: #334155;
+
+    margin-bottom: 8px;
+
+}
+
+
+.input-group input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #cbd5e1;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    outline: none;
+
+}
+
+
+.input-group input:focus {
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px #dbeafe;
+
+}
+
+
+/* =========================
+   PASSWORD
+========================= */
+
+.password-box {
+
+    position: relative;
+
+}
+
+
+.password-box input {
+
+    padding-right: 50px;
+
+}
+
+
+.password-box button {
+
+    position: absolute;
+
+    right: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.login-options {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 13px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.login-options label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #475569;
+
+}
+
+
+.login-options a {
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   LOGIN BUTTON
+========================= */
+
+.login-button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.login-button:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================
+   REGISTER
+========================= */
+
+.register-text {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+}
+
+
+.register-text a {
+
+    color: #2563eb;
+
+    font-weight: bold;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================
+   BACK HOME
+========================= */
+
+.back-home {
+
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #64748b;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.input-group small {
+
+    display: block;
+
+    margin-top: 5px;
+
+    color: #dc2626;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .login-container {
+
+        width: 90%;
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .login-left {
+
+        display: none;
+
+    }
+
+
+    .login-right {
+
+        padding: 35px 25px;
+
+    }
+
+}

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Login | CashFlow</title>
+
+    <link rel="stylesheet" href="css/login.css">
+
+</head>
+
+
+<body>
+
+    <div class="login-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="login-left">
+
+            <div class="logo">
+                💰 CashFlow
+            </div>
+
+            <div class="welcome">
+
+                <h1>
+                    Welcome Back! 👋
+                </h1>
+
+                <p>
+                    Take control of your finances,
+                    track your spending and reach
+                    your financial goals.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+                <div>
+                    ✓ Track your expenses
+                </div>
+
+                <div>
+                    ✓ Manage your budget
+                </div>
+
+                <div>
+                    ✓ Track your savings
+                </div>
+
+                <div>
+                    ✓ Get AI-powered suggestions
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+
+        <div class="login-right">
+
+            <h2>
+                Login to your account
+            </h2>
+
+            <p class="subtitle">
+                Enter your details to continue.
+            </p>
+
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                    <small id="emailError"></small>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-box">
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="showPassword">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                    <small id="passwordError"></small>
+
+                </div>
+
+
+                <!-- OPTIONS -->
+
+                <div class="login-options">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        Remember me
+
+                    </label>
+
+
+                    <a href="#">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- LOGIN BUTTON -->
+
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    Login
+
+                </button>
+
+
+            </form>
+
+
+            <!-- REGISTER -->
+
+            <p class="register-text">
+
+                Don't have an account?
+
+                <a href="register.html">
+                    Create Account
+                </a>
+
+            </p>
+
+
+            <!-- HOME -->
+
+            <a
+                href="index.html"
+                class="back-home">
+
+                ← Back to Home
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
