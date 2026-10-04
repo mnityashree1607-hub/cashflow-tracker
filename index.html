@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cashflow - Expense Tracker</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <!-- Main Navbar -->
+
+        <div class="navbar">
+
+            <div class="navlogo">
+                <div class="logo"></div>
+            </div>
+
+   <div
+    class="search"
+    id="search-btn"
+    title="Search"
+    onclick="searchCashFlow()">
+
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+</div>
+
+<div class="file" id="file-btn" title="Documents">
+    <i class="fa-solid fa-file"></i>
+</div>
+<div id="search-box" class="search-box">
+    <i class="fa-solid fa-magnifying-glass"></i>
+
+    <input
+        type="text"
+        id="transaction-search"
+        placeholder="Search expenses..."
+        autocomplete="off">
+
+    <button id="close-search" type="button">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>
+
+            <div class="profile" title="Profile">
+
+    <button id="profile-btn" class="profile-btn">
+        <i class="fa-regular fa-circle-user"></i>
+    </button>
+
+    <div id="profile-menu" class="profile-menu">
+
+        <div class="profile-header">
+            <i class="fa-regular fa-circle-user"></i>
+
+            <div>
+                <strong>User</strong>
+                <span id="profile-email">user@gmail.com</span>
+            </div>
+        </div>
+
+        <hr>
+
+       <div class="profile-option" id="my-profile-btn">
+    <i class="fa-regular fa-user"></i>
+    <span>My Profile</span>
+</div> 
+
+        <div class="profile-option" id="settings-btn">
+    <i class="fa-solid fa-gear"></i>
+    <span>Settings</span>
+</div>
+
+        <div class="profile-option">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Privacy & Security</span>
+        </div>
+
+        <div class="profile-option logout-option" id="logout-btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </div>
+
+    </div>
+
+</div>
+
+        </div>
+
+
+        <!-- Secondary Panel -->
+
+        <div class="panel">
+
+            <div class="panel-item active">
+                <i class="fa-solid fa-bars"></i>
+                <span>Menu</span>
+            </div>
+
+            <div class="panel-item">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </div>
+
+            <div class="panel-item">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Transactions</span>
+            </div>
+
+            <div class="panel-item">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Reports</span>
+            </div>
+
+            <div class="panel-item">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Budget</span>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="main-content">
+
+        <!-- Welcome -->
+
+        <section class="welcome-section">
+
+            <div class="welcome-text">
+
+                <h1>Welcome to Cashflow 👋</h1>
+
+                <p>
+                    Track your money and manage your daily expenses.
+                </p>
+
+            </div>
+
+            <label for="expense-toggle" class="add-expense">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Add Expense
+
+            </label>
+
+        </section>
+
+
+        <!-- ================= TOTAL BALANCE ================= -->
+
+        <section class="balance-card">
+
+            <div class="balance-info">
+
+                <p>Total Balance</p>
+
+                <h2 id="total-balance">₹35,000</h2>
+
+            </div>
+
+            <div class="balance-change">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                <span>12.5% from last month</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SUMMARY CARDS ================= -->
+
+        <section class="summary-container">
+
+            <!-- Income -->
+
+            <div class="summary-card">
+
+                <div class="summary-top">
+
+                    <div class="card-icon income-icon">
+
+                        <i class="fa-solid fa-arrow-trend-up"></i>
+
+                    </div>
+
+                </div>
+
+                <p>Income</p>
+
+                <h2 id="total-income">₹35,000</h2>
+
+                <span class="positive">
+
+                    <i class="fa-solid fa-arrow-up"></i>
+
+                    8.2%
+
+                </span>
+
+            </div>
+
+
+            <!-- Expenses -->
+
+            <div class="summary-card">
+
+                <div class="summary-top">
+
+                    <div class="card-icon expense-icon">
+
+                        <i class="fa-solid fa-arrow-trend-down"></i>
+
+                    </div>
+
+                </div>
+
+                <p>Expenses</p>
+
+                <h2 id="total-expenses">₹0</h2>
+
+                <span class="negative">
+
+                    <i class="fa-solid fa-arrow-down"></i>
+
+                    Monthly spending
+
+                </span>
+
+            </div>
+
+
+            <!-- Budget -->
+
+            <div class="summary-card">
+
+                <div class="summary-top">
+
+                    <div class="card-icon budget-icon">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                    </div>
+
+                </div>
+
+                <p>Budget Remaining</p>
+
+                <h2 id="budget-remaining">₹15,000</h2>
+
+                <span class="budget-text">
+                    Remaining this month
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= LOWER SECTION ================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Recent Transactions -->
+
+            <div class="transactions-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>Recent Transactions</h2>
+
+                        <p>Your latest expenses</p>
+
+                    </div>
+
+                    <button
+                        class="view-all"
+                        id="view-all">
+
+                        View All →
+
+                    </button>
+
+                </div>
+
+
+                <!-- JavaScript inserts transactions here -->
+
+                <div id="transaction-list"></div>
+
+            </div>
+
+
+            <!-- Expense Breakdown -->
+
+            <div class="breakdown-card">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <h2>Expense Breakdown</h2>
+
+                        <p>This month's spending</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-placeholder">
+
+                    <div class="donut">
+
+                        <span id="breakdown-total">
+                            ₹0
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="breakdown-list">
+
+                    <div>
+
+                        <span>
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Food
+
+                        </span>
+
+                        <strong id="food-percent">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Travel
+
+                        </span>
+
+                        <strong id="travel-percent">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Shopping
+
+                        </span>
+
+                        <strong id="shopping-percent">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+
+                            <i class="fa-solid fa-circle"></i>
+
+                            Bills
+
+                        </span>
+
+                        <strong id="bills-percent">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= ADD EXPENSE POPUP ================= -->
+
+    <input
+        type="checkbox"
+        id="expense-toggle">
+
+
+    <div class="expense-overlay">
+
+        <div class="expense-modal">
+
+
+            <!-- Modal Header -->
+
+            <div class="modal-header">
+
+                <div>
+
+                    <h2>Add Expense</h2>
+
+                    <p>
+                        Enter your expense details
+                    </p>
+
+                </div>
+
+                <label
+                    for="expense-toggle"
+                    class="close-modal">
+
+                    <i class="fa-solid fa-xmark"></i>
+
+                </label>
+
+            </div>
+
+
+            <!-- Amount -->
+
+            <div class="form-group">
+
+                <label for="expense-amount">
+                    Amount
+                </label>
+
+                <div class="amount-input">
+
+                    <span>₹</span>
+
+                    <input
+                        id="expense-amount"
+                        type="number"
+                        placeholder="0.00"
+                        min="1"
+                        step="0.01">
+
+                </div>
+
+            </div>
+
+
+            <!-- Category -->
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+                <div class="category-grid">
+
+
+                    <!-- Food -->
+
+                    <div
+                        class="category-option"
+                        data-category="Food">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                        <span>Food</span>
+
+                    </div>
+
+
+                    <!-- Travel -->
+
+                    <div
+                        class="category-option"
+                        data-category="Travel">
+
+                        <i class="fa-solid fa-car"></i>
+
+                        <span>Travel</span>
+
+                    </div>
+
+
+                    <!-- Shopping -->
+
+                    <div
+                        class="category-option"
+                        data-category="Shopping">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                        <span>Shopping</span>
+
+                    </div>
+
+
+                    <!-- Bills -->
+
+                    <div
+                        class="category-option"
+                        data-category="Bills">
+
+                        <i class="fa-solid fa-lightbulb"></i>
+
+                        <span>Bills</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Date -->
+
+            <div class="form-group">
+
+                <label for="expense-date">
+                    Date
+                </label>
+
+                <input
+                    id="expense-date"
+                    class="form-input"
+                    type="date">
+
+            </div>
+
+
+            <!-- Payment Method -->
+
+            <div class="form-group">
+
+                <label for="expense-payment">
+                    Payment Method
+                </label>
+
+                <select
+                    id="expense-payment"
+                    class="form-input">
+
+                    <option value="UPI">
+                        UPI
+                    </option>
+
+                    <option value="Cash">
+                        Cash
+                    </option>
+
+                    <option value="Credit Card">
+                        Credit Card
+                    </option>
+
+                    <option value="Debit Card">
+                        Debit Card
+                    </option>
+
+                    <option value="Net Banking">
+                        Net Banking
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Description -->
+
+            <div class="form-group">
+
+                <label for="expense-description">
+                    Description
+                </label>
+
+                <textarea
+                    id="expense-description"
+                    class="form-input"
+                    placeholder="Add a note..."></textarea>
+
+            </div>
+
+
+            <!-- Buttons -->
+
+            <div class="modal-buttons">
+
+                <label
+                    for="expense-toggle"
+                    class="cancel-btn">
+
+                    Cancel
+
+                </label>
+
+                <button
+                    type="button"
+                    id="save-expense"
+                    class="save-btn">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Save Expense
+
+                </button>
+
+            </div>
+
+
+        </div>
+      </div>  
+
+<!-- ================= SETTINGS PANEL ================= -->
+
+<div id="settings-overlay" class="settings-overlay">
+
+    <div class="settings-panel">
+
+        <!-- Settings Header -->
+        <div class="settings-header">
+
+            <div>
+                <h2>
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </h2>
+
+                <p>Personalize your CashFlow experience</p>
+            </div>
+
+            <button id="close-settings" class="close-settings">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <!-- ================= ACCOUNT ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-regular fa-user"></i>
+                Account
+            </h3>
+
+            <div class="setting-item" id="settings-profile-btn">
+
+                <div>
+                    <strong>My Profile</strong>
+                    <p>Manage your name and account information</p>
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= MONEY & BUDGET ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-wallet"></i>
+                Money & Budget
+            </h3>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Monthly Budget</strong>
+                    <p>Set your spending limit for this month</p>
+                </div>
+
+                <div class="budget-control">
+
+                    <span>₹</span>
+
+                    <input
+                        type="number"
+                        id="monthly-budget"
+                        placeholder="15000"
+                        min="0"
+                    >
+
+                    <button id="save-budget">
+                        Save
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Currency</strong>
+                    <p>Choose the currency used for your expenses</p>
+                </div>
+
+                <select id="currency-select">
+
+                    <option value="INR">₹ INR</option>
+                    <option value="USD">$ USD</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="GBP">£ GBP</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SMART ALERTS ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-bell"></i>
+                Smart Alerts
+            </h3>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Expense Reminders</strong>
+                    <p>Remind me to record my daily expenses</p>
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        id="expense-reminder-toggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Budget Warning</strong>
+                    <p>Alert me when I am close to my budget limit</p>
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        id="budget-alert-toggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= AI FEATURES ================= -->
+
+        <div class="settings-section ai-settings">
+
+            <h3>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Smart AI Features
+            </h3>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>AI Spending Suggestions</strong>
+                    <p>Get suggestions based on your spending patterns</p>
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        id="ai-suggestion-toggle"
+                        checked
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+            <div class="ai-info">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <span>
+                    CashFlow can analyze your expense patterns and
+                    provide useful spending suggestions.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= APPEARANCE ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-palette"></i>
+                Appearance
+            </h3>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Dark Mode</strong>
+                    <p>Switch between light and dark appearance</p>
+                </div>
+
+                <label class="toggle-switch">
+
+                    <input
+                        type="checkbox"
+                        id="dark-mode-toggle"
+                    >
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SECURITY ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-shield-halved"></i>
+                Security & Privacy
+            </h3>
+
+            <div class="setting-item">
+
+                <div>
+                    <strong>Password & Security</strong>
+                    <p>Manage your account security</p>
+                </div>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </div>
+
+            <div class="security-info">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <span>
+                    Your password should never be stored as plain text.
+                    Secure authentication and protected connections
+                    should be used in the final application.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= DATA MANAGEMENT ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-database"></i>
+                Data Management
+            </h3>
+
+            <div class="setting-item" id="export-data-btn">
+
+                <div>
+                    <strong>Export Expense Data</strong>
+                    <p>Download your expense records as a backup</p>
+                </div>
+
+                <i class="fa-solid fa-download"></i>
+
+            </div>
+
+
+            <div class="setting-item" id="reset-settings-btn">
+
+                <div>
+                    <strong>Reset Settings</strong>
+                    <p>Restore your CashFlow preferences to default</p>
+                </div>
+
+                <i class="fa-solid fa-rotate-left"></i>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <div class="settings-section">
+
+            <h3>
+                <i class="fa-solid fa-circle-info"></i>
+                About CashFlow
+            </h3>
+
+            <div class="about-cashflow">
+
+                <h4>CashFlow – Smart Expense Tracker</h4>
+
+                <p>
+                    Track expenses, manage budgets and understand
+                    your spending habits in one place.
+                </p>
+
+                <small>
+                    Version 1.0 • CashFlow Tracker
+                </small>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+function searchCashFlow() {
+
+    const searchText = prompt(
+        "🔍 Search your expenses\n\nEnter category, payment method, description, amount, or date:"
+    );
+
+    if (searchText === null) {
+        return;
+    }
+
+    const query = searchText.trim().toLowerCase();
+
+    if (query === "") {
+        alert("Please enter something to search.");
+        return;
+    }
+
+    const expenses =
+        JSON.parse(localStorage.getItem("cashflowExpenses")) || [];
+
+    const results = expenses.filter(function (expense) {
+
+        return (
+            String(expense.category || "").toLowerCase().includes(query) ||
+            String(expense.payment || "").toLowerCase().includes(query) ||
+            String(expense.description || "").toLowerCase().includes(query) ||
+            String(expense.amount || "").toLowerCase().includes(query) ||
+            String(expense.date || "").toLowerCase().includes(query)
+        );
+
+    });
+
+    if (results.length === 0) {
+
+        alert("No expenses found for: " + searchText);
+
+        return;
+    }
+
+    let message = "🔍 Search Results\n\n";
+
+    results.forEach(function (expense, index) {
+
+        message +=
+            (index + 1) +
+            ". " +
+            expense.category +
+            " — ₹" +
+            expense.amount +
+            "\n" +
+            "   " +
+            expense.payment +
+            " • " +
+            expense.date +
+            "\n";
+
+        if (expense.description) {
+
+            message +=
+                "   " +
+                expense.description +
+                "\n";
+        }
+
+        message += "\n";
+    });
+
+    alert(message);
+}
+</script>
+
+<script src="script.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
